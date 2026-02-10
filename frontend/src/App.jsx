@@ -14,7 +14,7 @@ function App() {
         <Route path="/fav" element={<Fav />} />
       </Routes>
     </main>
-    {/* {m===1&& (<Moviecard movie={{title:'mama',release_date:'2020'}} />)} */}
+    {m===1&& (<Moviecard movie={{title:'mama',release_date:'2020'}} />)}
     <Home /></> 
    )
 }
