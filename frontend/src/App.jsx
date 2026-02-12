@@ -15,7 +15,7 @@ function App() {
       </Routes>
     </main>
     {/* {m===1&& (<Moviecard movie={{title:'mama',release_date:'2020'}} />)} */}
-    <Home /></> 
+    {/* <Home /></>  */}
    )
 }
 
