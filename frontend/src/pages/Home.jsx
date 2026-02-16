@@ -1,14 +1,24 @@
 import MoviCard from "../components/MovieCard"
-import { useState } from "react"
-function Home(){
+import { useState,useEffect } from "react"
+function Home({movies,toggleFav,Favs}) {
     const [search,setSearch]=useState('')
+
+        
+    useEffect(() => {
+  console.log("Favs updated:", Favs);
+  const saveFavs=localStorage.setItem('favs',JSON.stringify(Favs))
+}, [Favs]);
+
+
+    
+
     const handleSearch=(e)=>{
         e.preventDefault()
         alert(search)
         setSearch('')
     }
-    const movies=[{id:1,title:'nama',release_date:'2020'},
-        {id:2,title:'max',release_date:'2021'},{id:3,title:'jhon week',release_date:'2022'}]
+    
+    
         return(
             <div className="home">
                 <form onSubmit={handleSearch} className="search-movie">
@@ -18,7 +28,7 @@ function Home(){
                 <div className="movie-grid">
                     {movies.map(movie=> (
                    movie.title.toLowerCase().startsWith(search)&& 
-                    <MoviCard movie={movie} key={movie.id} />))}
+                    <MoviCard movie={movie} key={movie.id} toggleFav={toggleFav} favs={Favs} />))}
                 </div>
             </div>
         )
